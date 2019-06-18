@@ -1,19 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { View, StyleSheet, Platform, StatusBar, Text } from 'react-native'; 
+import Header from './src/components/Header'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>This is my timeline mobile app!</Text>
-    </View>
-  );
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
+
+export default class App extends Component {
+
+  render() {
+    return (
+      <View>
+        <View style={styles.statusBar}>
+          <StatusBar hidden = {false} translucent = {true}></StatusBar>
+        </View>
+        <View style={styles.container}>
+          <Header title="Timeline"></Header>
+        </View>
+      </View>  
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
+  },
+  statusBar: {
+    height: STATUSBAR_HEIGHT,
+    backgroundColor: '#CC6600'
   },
 });
