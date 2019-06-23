@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Platform, StatusBar, Text } from 'react-native'; 
+import { View, StyleSheet, Platform, StatusBar, Text, Dimensions } from 'react-native'; 
 import Header from './src/components/Header';
 import Timeline from './src/components/Timeline';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 const API_URL = 'http://localhost:9000';
-
+const {width, height} = Dimensions.get('window');
+const {swidth, sheight} = Dimensions.get('screen');
+console.log(height, sheight);
 export default class App extends Component {
 
   state = {};
@@ -16,8 +18,8 @@ export default class App extends Component {
   componentDidMount() {
     fetch(`${API_URL}/items`)
       .then(response => response.json())
-      .then(bookings => {
-        this.setState({ bookings });
+      .then(items => {
+        this.setState({ items });
       });
   }
 
@@ -26,18 +28,18 @@ export default class App extends Component {
       startTime: null,
       endTime: null
     };
-    let allBookings = [];
-    if (this.state.bookings) {
-      allBookings = [...allBookings, ...this.state.bookings];
+    let allitems = [];
+    if (this.state.items) {
+      allitems = [...allitems, ...this.state.items];
     }
 
-    if (this.state.newBookings) {
-      allBookings = [...allBookings, ...this.state.newBookings];
+    if (this.state.newitems) {
+      allitems = [...allitems, ...this.state.newitems];
     }
 
-    if (allBookings) {
-      const startTimes = allBookings.map(booking => booking.time);
-      const endTimes = allBookings.map(
+    if (allitems) {
+      const startTimes = allitems.map(booking => booking.time);
+      const endTimes = allitems.map(
         booking => booking.time + booking.duration
       );
 
@@ -53,16 +55,15 @@ export default class App extends Component {
     const range = this.getRange();
     
     return (
-      <View>
+      <View style={{flex: 1}}>
         <View style={styles.statusBar}>
           <StatusBar translucent backgroundColor="#008375" barStyle="light-content"></StatusBar>
         </View>
         <View style={styles.container}>
          <Header title="Timeline"></Header>
         </View>
-        <View>
-          <Text>Existing bookings: gawri</Text>
-          <Timeline bookings={this.state.bookings} range={range}></Timeline>
+        <View style={{flex: 90}}>
+          <Timeline items={this.state.items} range={range}></Timeline>
         </View>
       </View>  
     );
@@ -73,11 +74,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flex: 8
   },
   statusBar: {
     height: STATUSBAR_HEIGHT,
-    
+    flex: 2
   },
 });
 

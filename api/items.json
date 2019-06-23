@@ -1,7 +1,7 @@
 [
-    { "time": "01 Mar 2018 11:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "fly to UK" },
-    { "time": "02 Mar 2018 11:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "Car hire" },
-    { "time": "03 Mar 2018 11:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "Have some rest" },
-    { "time": "04 Mar 2018 11:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "Drive to london" },
-    { "time": "05 Mar 2018 11:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "resturant - dinner" }
+    { "time": "01 Mar 2018 01:00:00 GMT+1000", "duration": 260, "user_id": "0001", "description": "fly to UK" },
+    { "time": "01 Mar 2018 6:00:00 GMT+1000", "duration": 120, "user_id": "0001", "description": "Car hire" },
+    { "time": "01 Mar 2018 10:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "Have some rest" },
+    { "time": "01 Mar 2018 15:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "Drive to london" },
+    { "time": "01 Mar 2018 20:00:00 GMT+1000", "duration": 180, "user_id": "0001", "description": "resturant - dinner" }
 ]
