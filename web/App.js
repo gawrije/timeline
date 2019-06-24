@@ -70,7 +70,7 @@ export default class App extends Component {
     return range;
   }
 
-  addNewItem = () => {
+  addNewItemForm = () => {
     const { showForm } = this.state;
     this.setState({ showForm: !showForm});
   }
@@ -84,14 +84,14 @@ export default class App extends Component {
           <StatusBar translucent backgroundColor="#008375" barStyle="light-content"></StatusBar>
         </View>
         <View style={styles.container}>
-         <Header title="Timeline" callBackAddNewItem={this.addNewItem}></Header>
+         <Header title="Timeline" callBackAddNewItem={this.addNewItemForm}></Header>
         </View>
         { this.state.showForm ? (
             <View style={{flex: 90}}>
-              <View style={{flex: 4}}>
-                <AddNewItem></AddNewItem>
+              <View style={{flex: 3}}>
+                <AddNewItem items={this.state.items}></AddNewItem>
               </View>
-              <View style={{flex: 6}}>
+              <View style={{flex: 7}}>
                 <Timeline items={this.state.items} range={range} ></Timeline>
               </View>
             </View>

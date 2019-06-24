@@ -7,8 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "moment": "^2.24.0",
+    "moment-range": "^4.0.2",
     "react": "16.8.3",
     "react-native": "0.59.9",
+    "react-native-datepicker": "^1.7.2",
     "tcomb-form-native": "^0.6.20"
   },
   "devDependencies": {
