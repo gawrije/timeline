@@ -1,15 +1,27 @@
-import React from 'react';
-import { View, StyleSheet, Platform, StatusBar, Text } from 'react-native'; 
-
+import React, { Component } from 'react';
+import { View, StyleSheet, Platform, StatusBar, Text, TouchableOpacity } from 'react-native'; 
+import AddNewItem from './AddNewItem';
 const HEADER_HEIGHT = Platform.OS === 'ios' ? 20 * 3 : StatusBar.currentHeight * 2;
 
-const Header = (props) => (
-    <View style={styles.header}>
-        <View><Text style = {styles.text}>Menu</Text></View>
-        <View><Text style = {styles.text}>{props.title}</Text></View>
-        <View><Text style = {styles.text}>Add</Text></View>
-    </View>
-);
+
+export default class Header extends Component {
+
+    addNewItem = () => {
+        this.props.callBackAddNewItem();
+    }
+
+    render() {
+        return (
+                <View style={styles.header}>
+                    <View><Text style = {styles.text}>Menu</Text></View>
+                    <View><Text style = {styles.text}>{this.props.title}</Text></View>
+                    <TouchableOpacity onPress={this.addNewItem}> 
+                        <View><Text style = {styles.text}>Add</Text></View>
+                    </TouchableOpacity>
+                </View>
+        );
+    }
+}
 
 const styles = StyleSheet.create({
     header: {
@@ -27,4 +39,3 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Header;
