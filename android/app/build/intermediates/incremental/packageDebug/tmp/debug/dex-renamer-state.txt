@@ -1,0 +1,4 @@
+#Mon Jun 24 15:14:26 AEST 2019
+base.0=/Users/DIalogIT/projectHome/dev/react-native/timeline/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
